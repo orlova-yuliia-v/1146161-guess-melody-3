@@ -5,7 +5,10 @@ import {GameType} from "../../const.js";
 class GenreQuestionScreen extends PureComponent {
   constructor(props) {
     super(props);
-    this.state = {answers: [false, false, false, false]};
+
+    this.state = {
+      answers: [false, false, false, false]
+    };
   }
 
   render() {
@@ -35,10 +38,11 @@ class GenreQuestionScreen extends PureComponent {
 
         <section className="game__screen">
           <h2 className="game__title">Выберите {genre} треки</h2>
-          <form className="game__tracks" onSubmit={(evt) => {
-            evt.preventDefault();
-            onAnswer(question, this.state.answers);
-          }}
+          <form className="game__tracks"
+            onSubmit={(evt) => {
+              evt.preventDefault();
+              onAnswer(question, this.state.answers);
+            }}
           >
             {answers.map((answer, i) => (
               <div key={`\${i}-\${answer.src}`} className="track">
@@ -47,7 +51,8 @@ class GenreQuestionScreen extends PureComponent {
                   <audio src={answer.src}></audio>
                 </div>
                 <div className="game__answer">
-                  <input className="game__input visually-hidden" type="checkbox" name="answer" value={`answer-\${i}`} id={`answer-\${i}`}
+                  <input className="game__input visually-hidden" type="checkbox" name="answer"
+                    value={`answer-\${i}`} id={`answer-\${i}`}
                     checked={userAnswers[i]}
                     onChange={(evt) => {
                       const value = evt.target.checked;
