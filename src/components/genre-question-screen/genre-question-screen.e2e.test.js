@@ -48,9 +48,10 @@ it(`When user answers genre question form is not sent`, () => {
   expect(formSendPrevention).toHaveBeenCalledTimes(1);
 });
 
-it(`User answer passed to callback is consistent with "userAnswer" prop`, () => {
+it(`User answer passed to onAnswer reflects the state of checkboxes`, () => {
   const {question} = mock;
-  const onAnswer = jest.fn((...args) => [...args]);
+  const fakeOnAnswer = () => {};
+  const onAnswer = jest.fn(fakeOnAnswer);
   const userAnswer = [false, true, false, false];
 
   const genreQuestion = shallow(<GenreQuestionScreen
@@ -70,6 +71,6 @@ it(`User answer passed to callback is consistent with "userAnswer" prop`, () => 
   expect(onAnswer.mock.calls[0][1]).toMatchObject(userAnswer);
 
   expect(
-      genreQuestion.find(`input`).map((it) => it.prop(`checked`))
+      genreQuestion.find(`input`).map((input) => input.prop(`checked`))
   ).toEqual(userAnswer);
 });
