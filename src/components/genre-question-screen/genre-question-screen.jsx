@@ -45,14 +45,14 @@ class GenreQuestionScreen extends PureComponent {
             }}
           >
             {answers.map((answer, i) => (
-              <div key={`\${i}-\${answer.src}`} className="track">
+              <div key={`${i}-${answer.src}`} className="track">
                 <button className="track__button track__button--play" type="button"></button>
                 <div className="track__status">
                   <audio src={answer.src}></audio>
                 </div>
                 <div className="game__answer">
                   <input className="game__input visually-hidden" type="checkbox" name="answer"
-                    value={`answer-\${i}`} id={`answer-\${i}`}
+                    value={`answer-${i}`} id={`answer-${i}`}
                     checked={userAnswers[i]}
                     onChange={(evt) => {
                       const value = evt.target.checked;
@@ -62,7 +62,7 @@ class GenreQuestionScreen extends PureComponent {
                       });
                     }}
                   />
-                  <label className="game__check" htmlFor={`answer-\${i}`}>Отметить</label>
+                  <label className="game__check" htmlFor={`answer-${i}`}>Отметить</label>
                 </div>
               </div>
             ))}
