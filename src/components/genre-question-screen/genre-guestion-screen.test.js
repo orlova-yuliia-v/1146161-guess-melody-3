@@ -30,8 +30,11 @@ it(`should render correctly`, () => {
   .create(<GenreQuestionScreen
     question={question}
     onAnswer={() => {}}
-  />
-  ).toJSON();
+  />, {
+    createNodeMock: () => {
+      return {};
+    }
+  }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
