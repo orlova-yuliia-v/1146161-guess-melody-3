@@ -28,9 +28,12 @@ it(`should render correctly`, () => {
     .create(<ArtistQuestionScreen
       question={question}
       onAnswer={() => {}}
-    />
-    )
-    .toJSON();
+      renderPlayer={() => {}}
+    />, {
+      createNodeMock: () => {
+        return {};
+      }
+    }).toJSON();
 
   expect(tree).toMatchSnapshot();
 });

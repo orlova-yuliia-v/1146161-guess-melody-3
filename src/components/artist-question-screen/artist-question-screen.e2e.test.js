@@ -44,6 +44,7 @@ it(`Click on user answer should pass to the callback data-object from which this
   const artistQuestionScreen = shallow(<ArtistQuestionScreen
     onAnswer={onAnswer}
     question={question}
+    renderPlayer={() => {}}
   />);
 
   const answerInputs = artistQuestionScreen.find(`input`);
