@@ -107,9 +107,10 @@ const mapDispatchToProps = (dispatch) => ({
   onWelcomeButtonClick() {
     dispatch(ActionCreator.incrementStep());
   },
-  onUserAnswer() {
+  onUserAnswer(question, answer) {
     dispatch(ActionCreator.incrementStep());
-  },
+    dispatch(ActionCreator.incrementMistake(question, answer));
+  }
 });
 
 export {App};
